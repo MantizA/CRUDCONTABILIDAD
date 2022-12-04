@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CRUDCONTABILIDAD.ENTRADACONTABLE>
+
+@{
+    ViewBag.Title = "Entradas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Entradas a mostrar:</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDENTIFICADOR_AUX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUENTA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPOMOV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHAASIENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MONTOASIENTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDENTIFICADOR_AUX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUENTA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPOMOV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHAASIENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MONTOASIENTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID_ASIENTO }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Details", "Details", new { id = item.ID_ASIENTO }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID_ASIENTO}, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
